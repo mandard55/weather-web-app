@@ -10,10 +10,10 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { WeatherListComponent } from './weather-list/weather-list.component';
+import { WeatherListComponent } from './weather/weather-list/weather-list.component';
 import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
-import { WeatherForecastListComponent } from './weather-forecast-list/weather-forecast-list.component';
-import { WeatherDetailsComponent } from './weather-details/weather-details.component';
+import { WeatherForecastListComponent } from './weather/weather-forecast-list/weather-forecast-list.component';
+import { WeatherDetailsComponent } from './weather/weather-details/weather-details.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule} from '@angular/material';
 

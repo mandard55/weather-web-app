@@ -28,10 +28,11 @@
         </div>
         <div>
             <label>Email Address:</label>
-            <div><input name="email"  class="input" id="email" #email /></div></div>
+            <div><input name="email"  class="input" id="email" #email
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" [ngClass]="{invalid : email.touched && !email?.valid}" required email/></div></div>
         <div>
           <label>Contact Number:</label>
-          <div><input name="contact"  class="input" id="Contact" #contact /></div></div>
+          <div><input name="contact"  class="input" id="Contact" #contact pattern="^((\\+91-?)|0)?[0-9]{10}$"  [ngClass]="{invalid : contact.touched && !contact?.valid}" required contact/></div></div>
         <div>
             <label>Details *:</label>
             <div><input rows="5" class="input" style="height: 70px;width: 300px;word-break:break-all;"  cols="46" #details  required/></div>

@@ -9,11 +9,11 @@
 				<span class="full-width" *ngIf="isExpanded || isShowing">Dashboard</span>
 				<mat-icon mat-list-icon>home</mat-icon>
 			</mat-list-item>
-      <mat-list-item  [routerLink]="['/weather-list']" (click)="showSubmenu = !showSubmenu" class="parent">
+      <mat-list-item  [routerLink]="['/weather/weather-list']" (click)="showSubmenu = !showSubmenu" class="parent">
 				<span class="full-width" *ngIf="isExpanded || isShowing">Weather List</span>
 				<mat-icon mat-list-icon>list</mat-icon>
 			</mat-list-item>
-      <mat-list-item [routerLink]="['/weather-forecast-list']" (click)="showSubmenu = !showSubmenu" class="parent">
+      <mat-list-item [routerLink]="['/weather/weather-forecast-list']" (click)="showSubmenu = !showSubmenu" class="parent">
 				<span class="full-width" *ngIf="isExpanded || isShowing">Weather Forecast List</span>
 				<mat-icon mat-list-icon>list</mat-icon>
 			</mat-list-item>

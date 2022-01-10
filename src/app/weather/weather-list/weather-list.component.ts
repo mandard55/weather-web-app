@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { WeatherListDataSource } from './weather-list-datasource';
-import { WeatherService } from '../weather.service';
+import { WeatherService } from '../../weather.service';
 
 
 @Component({
