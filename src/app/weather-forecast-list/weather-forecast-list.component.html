@@ -1,0 +1,38 @@
+<mat-card>Weather Forecast List</mat-card>
+
+<div class="mat-elevation-z8" style="padding: 5% 5% 0% 5%">
+  <table mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="username">
+      <th  style="padding: 0% 0% 0% 50px;font-size: large;" mat-header-cell *matHeaderCellDef >Username</th>
+      <td mat-cell style="padding: 0% 0% 0% 50px" *matCellDef="let row">{{row.username}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th  style="padding: 0% 0% 0% 100px;font-size: large;"  mat-header-cell *matHeaderCellDef >Name</th>
+      <td mat-cell style="padding: 0% 0% 0% 100px" *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Description">
+      <th  style="padding: 0% 0% 0% 100px;font-size: large;"  mat-header-cell *matHeaderCellDef>Description</th>
+      <td [routerLink]="['/weather-details/',row.name]" mat-cell style="padding: 1% 0% 0% 100px;max-width: 550px;cursor: pointer;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 20px;
+      position: relative;" *matCellDef="let row">{{row.Description}} <p style="color: blue;">Read more...</p></td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+    [length]="dataSource.data.length"
+    [pageIndex]="0"
+    [pageSize]="5"
+    [pageSizeOptions]="[5, 10, 15, 20]">
+  </mat-paginator>
+</div>

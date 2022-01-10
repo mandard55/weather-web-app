@@ -1,0 +1,54 @@
+
+<mat-card>Weather Forecast Details</mat-card>
+<mat-card-header style="padding-top: 2%;color: blue;font-size:x-large;">{{this.cityname}}</mat-card-header>
+<hr/>
+<div *ngFor="let city of weatherData">
+    <mat-card-content style="padding: 2% 0% 0% 2%;">
+          <h5 style="font-size: large;">{{city.username}}</h5>
+            <label>{{city.Description}}</label>
+            <div class="d-inline-block dropdown" style="font-size: small;padding: 2% 0% 0% 2%;">
+                  {{city.Date}}
+            </div>
+    </mat-card-content>
+    <hr/>
+
+</div>
+
+<div style="padding: 0% 0% 0% 2%;">
+  <a (click)="toggle()" id="bt" style="color:blue;cursor: pointer;">
+   {{buttonName}}
+  </a>
+  <ng-container *ngIf="show">
+    <form ngNativeValidate>
+    <div style="margin: 0 auto;text-align: left;">
+        <div>
+            <label>Name *:</label>
+            <div><input id="tbname" class="input"  name="yourname" #name required/> </div>
+
+        </div>
+        <div>
+            <label>Email Address:</label>
+            <div><input name="email"  class="input" id="email" #email /></div></div>
+        <div>
+          <label>Contact Number:</label>
+          <div><input name="contact"  class="input" id="Contact" #contact /></div></div>
+        <div>
+            <label>Details *:</label>
+            <div><input rows="5" class="input" style="height: 70px;width: 300px;word-break:break-all;"  cols="46" #details  required/></div>
+        </div>
+        <div>
+          <mat-radio-group  >
+            <mat-radio-button value="1">Like </mat-radio-button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-radio-button value="2">Dislike</mat-radio-button>
+          </mat-radio-group>
+         </div>
+         <hr/>
+        <button class="button" type="submit"  (click)="addcomment(name.value, details.value)" id="bt">
+          Comment
+         </button>
+    </div>
+  </form>
+</ng-container>
+</div>
+
+

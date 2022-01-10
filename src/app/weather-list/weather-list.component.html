@@ -1,0 +1,56 @@
+<mat-card>Weather List</mat-card>
+<div class="mat-elevation-z8" style="padding: 5% 5% 0% 5%">
+
+  <table mat-table #table [dataSource]="dataSource" matSort aria-label="">
+    <!-- name Column -->
+    <ng-container matColumnDef="name" >
+      <th style="padding: 0% 0% 0% 50px;font-size: large;" mat-header-cell *matHeaderCellDef >Name</th>
+      <td  (click)="onSelect(row,'Hourly')"   style="padding: 0% 0% 0% 50px;cursor: pointer;color: cadetblue;"  mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <!-- lon Column -->
+    <ng-container matColumnDef="lon">
+      <th  style="padding: 0% 0% 0% 100px;font-size: large;"  mat-header-cell *matHeaderCellDef >Longitude</th>
+      <td  style="padding: 0% 0% 0% 100px"  mat-cell *matCellDef="let row">{{row.lon}}</td>
+    </ng-container>
+
+     <!-- lat Column -->
+    <ng-container matColumnDef="lat">
+      <th  style="padding: 0% 0% 0% 100px;font-size: large;"  mat-header-cell *matHeaderCellDef >Latitude</th>
+      <td  style="padding: 0% 0% 0% 100px"  mat-cell *matCellDef="let row">{{row.lat}}</td>
+    </ng-container>
+
+
+    <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr  mat-row style="font-size: small;" *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator #paginator
+  [length]="dataSource.data.length"
+  [pageIndex]="0"
+  [pageSize]="5"
+  [pageSizeOptions]="[5, 10, 15, 20]">
+</mat-paginator>
+</div>
+
+  <mat-grid-list cols="1" rowHeight="100px" style="padding:2% 0% 0% 5%;">
+
+
+    <mat-card-content>
+   <ul style=" list-style-type: none; color: black; " *ngFor="let hourly of this.hourlyData" >
+       <li style="float: left;padding-right: 4%;">
+           <table style="width: 100%;">
+               <tr>
+                   <th><p>{{ hourly.time }}</p></th>
+               </tr>
+               <tr>
+                   <td ><h3 *ngIf="hourly.temp != undefined">{{hourly.temp  }}</h3>
+                       <p style="font-size: small;align-self: center;" *ngIf="hourly.minTemp != undefined">{{ hourly.minTemp }}</p>
+                   </td>
+
+               </tr>
+           </table>
+           </li>
+       </ul>
+    </mat-card-content>
+  </mat-grid-list>
+

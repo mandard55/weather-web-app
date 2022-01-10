@@ -1,0 +1,86 @@
+<div>
+  <mat-card>Weather Overview</mat-card>
+<br/>
+<mat-grid-list cols="9" rowHeight="100px">
+  <mat-grid-tile
+  [colspan]="9"
+  [rowspan]="1">
+      <form class="example-form" ngNativeValidate>
+      <input type="text" id="cityname"
+         placeholder="Search for a city"
+         [formControl]="control"
+        class ="search"
+         [matAutocomplete]="auto"  required>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let street of filteredcities | async" [value]="street">
+          {{street}}
+        </mat-option>
+      </mat-autocomplete>
+      <button class="button"  (click)="SearchCityTemp()"   type="submit">Search</button>
+      <div style="color: red;font-size: small;">{{validname}}</div>
+</form>
+          <!-- <input type="text" class="form-control mr-sm-1" (keyup)="getCityIdsFirstWay($event)" placeholder="Enter City Name" id="cityname"  />
+          <option style="cursor:pointer; " class="dropdown-item" *ngFor="let item of citynames"  (click)="SelectItem(item.name)" [value]="item">{{item.name}}</option> -->
+    </mat-grid-tile>
+</mat-grid-list>
+
+  <mat-grid-list cols="9" rowHeight="100px">
+    <mat-grid-tile
+        [colspan]="4"
+        [rowspan]="1"
+        style="background-color: lightseagreen;margin-left: 2%;"  class='footer'>
+      <img  style="color: white;" alt="Smoke" src="//ssl.gstatic.com/onebox/weather/64/fog.png" id="wob_tci" data-atf="1" data-frt="0"> &nbsp;&nbsp;&nbsp; <h1>{{this.temp}}°C</h1>
+       </mat-grid-tile>
+
+      <mat-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+      ></mat-grid-tile>
+
+      <mat-grid-tile
+      [colspan]="4"
+      [rowspan]="1"
+      style="background-color: lightseagreen;margin-right:2%;" class='footer'>
+      <div>
+
+
+      <mat-card-title>{{this.defaultCity ?.name}}</mat-card-title>
+      <mat-card-subtitle>{{this.Date}}</mat-card-subtitle>
+      <mat-card-subtitle>{{this.weather ?.main}}</mat-card-subtitle>
+    </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-grid-list cols="1"  style="padding:5% 0% 0% 9%;text-align: center;">
+         <mat-card-header style="padding-top: 50px">
+                  <select formControlName="weather" (change)="selectOption($event.target.value)"  class="searchbyoption">
+                      <option>Hourly</option>
+                      <option>Daily</option>
+                  </select>
+         </mat-card-header>
+         <mat-card-content>
+        <ul style=" list-style-type: none; color: black; " *ngFor="let hourly of this.hourlyData" >
+            <li style="float: left;padding-right: 3%;">
+                <table>
+                    <tr>
+                        <th><p >{{ hourly.time }}</p></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img class="wob_tci" style="color: black;align-items: center;" alt="Smoke" src="//ssl.gstatic.com/onebox/weather/64/fog.png" id="wob_tci" data-atf="0" data-frt="0">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td ><h3 *ngIf="hourly.temp != undefined">{{hourly.temp  }}</h3>
+                            <p style="font-size: small;" *ngIf="hourly.minTemp != undefined">{{ hourly.minTemp }}</p>
+                        </td>
+
+                    </tr>
+                </table>
+                </li>
+            </ul>
+         </mat-card-content>
+
+        </mat-grid-list>
+</div>
