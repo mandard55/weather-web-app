@@ -13,7 +13,7 @@ export class WeatherForecastListComponent implements OnInit {
   dataSource: WeatherForecastListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['username', 'name','Description'];
+  displayedColumns = ['username', 'name', 'Description'];
 
   ngOnInit() {
     this.dataSource = new WeatherForecastListDataSource(this.paginator, this.sort);

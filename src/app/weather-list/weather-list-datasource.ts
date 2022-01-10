@@ -4,15 +4,15 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import data from './weatherlist.json';
 
-//own data model type
+// own data model type
 export interface WeatherListItem {
   name: string;
   id: string;
-  lon: string
-  lat: string
+  lon: string;
+  lat: string;
 }
 
-//real data from application
+// real data from application
 const WEATHER_DATA: any[] = data;
 
 /**
@@ -59,6 +59,7 @@ export class WeatherListDataSource extends DataSource<WeatherListItem> {
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
+  // tslint:disable-next-line: no-shadowed-variable
   private getPagedData(data: WeatherListItem[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
@@ -68,6 +69,7 @@ export class WeatherListDataSource extends DataSource<WeatherListItem> {
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
+    // tslint:disable-next-line: no-shadowed-variable
   private getSortedData(data: WeatherListItem[]) {
     if (!this.sort.active || this.sort.direction === '') {
       return data;

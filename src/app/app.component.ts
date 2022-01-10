@@ -11,9 +11,9 @@ import { MatSidenav } from '@angular/material';
 export class AppComponent {
   @ViewChild('sidenav') sidenav: MatSidenav;
   isExpanded = false;
-  showSubmenu: boolean = false;
+  showSubmenu = false;
   isShowing = false;
-  showSubSubMenu: boolean = false;
+  showSubSubMenu = false;
 
   title = 'weather-web-app';
 

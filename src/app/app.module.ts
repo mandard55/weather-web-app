@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from "@angular/router";
-import { allAppRoutes } from "./routes";
+import { RouterModule } from '@angular/router';
+import { allAppRoutes } from './routes';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -16,7 +16,7 @@ import { WeatherForecastListComponent } from './weather-forecast-list/weather-fo
 import { WeatherDetailsComponent } from './weather-details/weather-details.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatToolbarModule, MatSidenavModule, MatListModule, MatIconModule} from '@angular/material';
-import { MatDialogModule } from "@angular/material/dialog";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,10 +42,9 @@ import { MatDialogModule } from "@angular/material/dialog";
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule,
-    MatDialogModule
+    MatIconModule
   ],
-  providers: [HttpClientModule,HttpClient],
+  providers: [HttpClientModule, HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
