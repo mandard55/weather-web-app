@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import data from './weather-forecast-list.json';
 
-// TODO: Replace this with your own data model type
+// data model type
 export interface WeatherForecastListItem {
   username: string;
   name: string;
@@ -12,7 +12,7 @@ export interface WeatherForecastListItem {
   Date: string;
 }
 
-// TODO: replace this with real data from your application
+// data from json file
 const WEATHER_DATA: any[] = data;
 
 /**
